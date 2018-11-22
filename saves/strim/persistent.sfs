@@ -204,15 +204,6 @@ GAME
 		{
 			useBlizzy = False
 		}
-		HangerExtender
-		{
-			scalingFactor = 5
-			changeHotkey = False
-			newHotKey = KeypadMultiply
-			hideHangars = True
-			BuildingStartMaxSize = False
-			advancedDebug = False
-		}
 		JanitorsClosetSettings
 		{
 			toolbarEnabled = True
@@ -225,6 +216,15 @@ GAME
 			buttonTooltip = True
 			showMod = True
 			debug = False
+		}
+		HangerExtender
+		{
+			scalingFactor = 5
+			changeHotkey = False
+			newHotKey = KeypadMultiply
+			hideHangars = True
+			BuildingStartMaxSize = False
+			advancedDebug = False
 		}
 		Settings
 		{
@@ -309,16 +309,16 @@ GAME
 			PartUpgradesInSandbox = True
 			PartUpgradesInCareer = True
 		}
-		TC
-		{
-			showStockTooltips = True
-			hoverTimeout = 0.5
-		}
 		KRASH_Settings
 		{
 			wireframes = False
 			defaultAtmoStartingAltitude = 150294
 			defaultNoAtmoStartingAltitude = 19919
+		}
+		TC
+		{
+			showStockTooltips = True
+			hoverTimeout = 0.5
 		}
 	}
 	SCENARIO
@@ -360,7 +360,7 @@ GAME
 	{
 		name = ContractSystem
 		scene = 7, 8, 5, 6
-		update = -1000
+		update = 303046306.97065705
 		version = 1.3.1
 		WEIGHTS
 		{
@@ -539,7 +539,7 @@ GAME
 							disableOnStateChange = False
 							values = 0,0,0,0,0
 							ContractIdentifier = RP0.recordCrewedCount
-							title = Count: At least 2
+							title = Count: At least 2 
 							notes = 
 							completedMessage = 
 						}
@@ -648,7 +648,7 @@ GAME
 						disableOnStateChange = False
 						values = 0,0,0,0,0
 						ContractIdentifier = RP0.recordCrewedAlt
-						title = Count: At least 1
+						title = Count: At least 1 
 						notes = 
 						completedMessage = 
 					}
@@ -1827,7 +1827,7 @@ GAME
 								disableOnStateChange = False
 								values = 0,0,0,0,0
 								ContractIdentifier = RP0.recordCrewedDuration
-								title = Count: At least 1
+								title = Count: At least 1 
 								notes = 
 								completedMessage = 
 							}
@@ -1953,7 +1953,7 @@ GAME
 						disableOnStateChange = False
 						values = 0,0,0,0,0
 						ContractIdentifier = RP0.recordCrewedSpeed
-						title = Count: At least 1
+						title = Count: At least 1 
 						notes = 
 						completedMessage = 
 					}
@@ -9418,7 +9418,7 @@ GAME
 							disableOnStateChange = False
 							values = 0,0,0,0,0
 							ContractIdentifier = RP0.FirstSolarSat
-							title = Count: At least 1
+							title = Count: At least 1 
 							notes = 
 							completedMessage = 
 						}
@@ -12092,7 +12092,7 @@ GAME
 							disableOnStateChange = False
 							values = 0,0,0,0,0
 							ContractIdentifier = RP0.FirstComSat
-							title = Count: At least 1
+							title = Count: At least 1 
 							notes = 
 							completedMessage = 
 						}
@@ -12404,7 +12404,7 @@ GAME
 	{
 		name = Funding
 		scene = 7, 8, 5, 6
-		funds = 424860.94102533098
+		funds = 408077.79670431447
 	}
 	SCENARIO
 	{
@@ -13628,7 +13628,7 @@ GAME
 			prestige = 0
 			seed = 1945814689
 			state = Offered
-			viewed = Unseen
+			viewed = Read
 			agent = Federation Aeronautique Internationale
 			deadlineType = Floating
 			expiryType = None
@@ -14178,7 +14178,7 @@ GAME
 						disableOnStateChange = False
 						values = 0,0,0,0,0
 						ContractIdentifier = RP0.first_KarmanCrewed
-						title = Count: Between 1 and 99
+						title = Count: Between 1 and 99 
 						notes = 
 						completedMessage = 
 					}
@@ -15867,7 +15867,7 @@ GAME
 						disableOnStateChange = False
 						values = 0,0,0,0,0
 						ContractIdentifier = RP0.CrewedFlightLow
-						title = Count: Between 1 and 99
+						title = Count: Between 1 and 99 
 						notes = 
 						completedMessage = 
 					}
@@ -16065,7 +16065,7 @@ GAME
 						disableOnStateChange = False
 						values = 0,0,0,0,0
 						ContractIdentifier = RP0.ComTestSat
-						title = Count: At least 1
+						title = Count: At least 1 
 						notes = 
 						completedMessage = 
 					}
@@ -16281,7 +16281,7 @@ GAME
 						disableOnStateChange = False
 						values = 0,0,0,0,0
 						ContractIdentifier = RP0.BreakSoundBarrier
-						title = Count: Between 1 and 99
+						title = Count: Between 1 and 99 
 						notes = 
 						completedMessage = 
 					}
@@ -16347,162 +16347,6 @@ GAME
 					disableOnStateChange = False
 					values = 0,0,0,0,0
 					ContractIdentifier = RP0.BreakSoundBarrier
-					title = Return Home Safely
-					notes = 
-					completedMessage = 
-					completeInSequence = True
-					hideChildren = True
-					allowStateReset = True
-				}
-			}
-		}
-		CONTRACT
-		{
-			guid = 513266e8-38c2-415a-a047-d545c8dac2ee
-			type = ConfiguredContract
-			prestige = 1
-			seed = 1226380605
-			state = Offered
-			viewed = Unseen
-			agent = Federation Aeronautique Internationale
-			deadlineType = Floating
-			expiryType = None
-			ignoresWeight = True
-			values = 259200,31536000,250000,221382,250000,3,12,12,303154096.010858,0,0,0
-			subtype = first_OrbitRecover
-			title = Reach Orbital Speed & Return Safely to Earth
-			description = Reentry is brutally hot and dangerous but it can be survivable with the right technology and equipment. We want you to design, build, and launch a craft that can survive a reentry and make a soft landing or splashdown on Earth. Note that orbital-speed suborbital flights are acceptable as well. Historically this research started with weapon reentry vehicles for the newly developing ICBM forces but the research, and rockets, were quite applicable elsewhere; reconnaissance satellite recovery vessels, crewed capsules, and interplanetary landers have also withstood this crucible. You may complete this contract up to three times.
-			synopsis = Recover a craft from an orbital-velocity descent
-			completedMessage = Congratulations! The craft has survived reentry, and engineers are examining it very keenly indeed.
-			hash = -853659581
-			targetBody = Earth
-			PARAM
-			{
-				name = VesselParameterGroup
-				id = OrbitReturn
-				state = Incomplete
-				values = 0,0,0,0,0
-				ContractIdentifier = RP0.first_OrbitRecover
-				title = Recover a craft from Orbit
-				notes = 
-				completedMessage = 
-				duration = 0
-				dissassociateVesselsOnContractFailure = True
-				dissassociateVesselsOnContractCompletion = False
-				PARAM
-				{
-					name = NewVessel
-					id = NewVessel
-					state = Incomplete
-					disableOnStateChange = False
-					values = 0,0,0,0,0
-					ContractIdentifier = RP0.first_OrbitRecover
-					title = Launch a New Vessel
-					notes = 
-					completedMessage = 
-					hideChildren = True
-					allowStateReset = True
-					launchID = 0
-				}
-				PARAM
-				{
-					name = HasCrew
-					id = HasNoCrew
-					state = Incomplete
-					disableOnStateChange = False
-					values = 0,0,0,0,0
-					ContractIdentifier = RP0.first_OrbitRecover
-					title = Uncrewed
-					notes = 
-					completedMessage = 
-					hideChildren = True
-					allowStateReset = True
-					minCrew = 0
-					maxCrew = 0
-					minExperience = 0
-					maxExperience = 5
-					PARAM
-					{
-						name = ParameterDelegate`1
-						id = Unmanned
-						state = Incomplete
-						disableOnStateChange = False
-						values = 0,0,0,0,0
-						title = Unmanned
-						notes = 
-						completedMessage = 
-						hidden = True
-					}
-				}
-				PARAM
-				{
-					name = ReachState
-					id = OrbitalVelocity
-					state = Incomplete
-					disableOnStateChange = False
-					values = 0,0,0,0,0
-					ContractIdentifier = RP0.first_OrbitRecover
-					title = Reach Orbital Velocity of 6500 m/s with a minimum altitude of 150 km
-					notes = 
-					completedMessage = 
-					allowStateReset = False
-					targetBody = Earth
-					situation = SUB_ORBITAL
-					minAltitude = 150000
-					minSpeed = 6500
-					PARAM
-					{
-						name = ParameterDelegate`1
-						id = Destination: Earth
-						state = Incomplete
-						disableOnStateChange = False
-						values = 0,0,0,0,0
-						title = Destination: Earth
-						notes = 
-						completedMessage = 
-					}
-					PARAM
-					{
-						name = ParameterDelegate`1
-						id = Situation: Sub-orbital trajectory
-						state = Incomplete
-						disableOnStateChange = False
-						values = 0,0,0,0,0
-						title = Situation: Sub-orbital trajectory
-						notes = 
-						completedMessage = 
-					}
-					PARAM
-					{
-						name = ParameterDelegate`1
-						id = Altitude: Above 150,000 m
-						state = Incomplete
-						disableOnStateChange = False
-						values = 0,0,0,0,0
-						title = Altitude: Above 150,000 m
-						notes = 
-						completedMessage = 
-					}
-					PARAM
-					{
-						name = ParameterDelegate`1
-						id = Speed: Greater than 6,500 m/s
-						state = Incomplete
-						disableOnStateChange = False
-						values = 0,0,0,0,0
-						title = Speed: Greater than 6,500 m/s
-						notes = 
-						completedMessage = 
-					}
-				}
-				PARAM
-				{
-					name = ReturnHome
-					id = ReturnHome
-					state = Incomplete
-					disableOnStateChange = False
-					values = 0,0,0,0,0
-					ContractIdentifier = RP0.first_OrbitRecover
 					title = Return Home Safely
 					notes = 
 					completedMessage = 
@@ -16796,7 +16640,7 @@ GAME
 				techName = Basic Avionics and Probes
 				techID = basicAvionics
 				scienceCost = 19
-				progress = 0.00014767109204643524
+				progress = 0.00040433751393664032
 				ProtoNode
 				{
 					id = basicAvionics
@@ -16927,8 +16771,8 @@ GAME
 	{
 		name = MaintenanceHandler
 		scene = 6, 7, 5, 8
-		nextUpdate = 303049634.75091666
-		lastUpdate = 303046034.75091666
+		nextUpdate = 303049720.51083487
+		lastUpdate = 303046120.51083487
 	}
 	SCENARIO
 	{
@@ -18545,13 +18389,21 @@ GAME
 			Version = 0.13.6
 			IsNewSave = False
 		}
-		LifeSupportBuildAid
+		LifeSupportMonitoring
 		{
 			visible = False
 			x = 777.5
-			y = 438
+			y = 75
 			width = 300
-			height = 180
+			height = 300
+		}
+		LifeSupportCrewRoster
+		{
+			visible = False
+			x = 742.5
+			y = 428
+			width = 370
+			height = 200
 		}
 	}
 	SCENARIO
@@ -18595,7 +18447,7 @@ GAME
 	FLIGHTSTATE
 	{
 		version = 1.3.1
-		UT = 303046098.55085582
+		UT = 303046308.83065528
 		activeVessel = 0
 		mapViewFiltering = 7166
 		commNetUIModeTracking = Network
@@ -18632,11 +18484,11 @@ GAME
 			{
 				SMA = NaN
 				ECC = 1
-				INC = 28.534143779587122
+				INC = 28.534143779587041
 				LPE = 270
-				LAN = 318.36710452202641
+				LAN = 318.87607703761125
 				MNA = 0
-				EPH = 303046034.69091672
+				EPH = 303046156.51080054
 				REF = 1
 				IDENT = Kerbin
 			}
@@ -20789,11 +20641,11 @@ GAME
 			{
 				SMA = NaN
 				ECC = 1
-				INC = 28.534136069939013
+				INC = 28.534136069939038
 				LPE = 270
-				LAN = 318.36710722286944
+				LAN = 318.87607973845428
 				MNA = 0
-				EPH = 303046034.69091672
+				EPH = 303046156.51080054
 				REF = 1
 				IDENT = Kerbin
 			}

@@ -9,7 +9,7 @@ fetch(`./mission.csv`).then(res=>res.text()).then(csv=>{
 
   data.forEach(entry=>{
     let opt = document.createElement('option');
-    opt.textContent = `${entry[1]} (${entry[2]})`;
+    opt.textContent = `${entry[1]} (${new Date(entry[2]*1000).toISOString()})`;
     opt.setAttribute('value', entry[0]);
     chooser.appendChild(opt);
   });

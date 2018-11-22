@@ -2,11 +2,12 @@ export({
   parameter prerun is 0.
 
   local t0 is TIME:SECONDS + prerun.
+  if KUNIVERSE:HASSUFFIX("REALTIME") set t0 to KUNIVERSE:REALTIME.
   local indexfile is "0:/logs/mission.csv".
   local logfilename is "log_" + t0 + ".csv".
   local logfile is "0:/logs/" + logfilename.
   log logfilename + "," + SHIP:NAME + "," + t0 to indexfile.
-  local starttime is t0.
+  local starttime is TIME:SECONDS + prerun.
   local timeprecision is 100.
 
   local loggers is LEX().

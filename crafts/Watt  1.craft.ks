@@ -9,7 +9,7 @@ local ascend is {
     HEADING(
       headingCompass,
       MAX(
-        90 - 90 * ((APOAPSIS-turnStart) / (200000-turnStart))^0.4,
+        90 - 90 * ((APOAPSIS-turnStart) / (250000-turnStart))^0.4,
         90 - VANG(
           SHIP:UP:VECTOR,
           nav["circularVelocityVector"]() - SHIP:ORBIT:VELOCITY:ORBIT
@@ -25,11 +25,17 @@ local getG is {
   return BODY:MU / (BODY:RADIUS + altitude)^2.
 }.
 
+local dTcurrentTime is TIME:SECONDS.
+
 local circularize is {
   parameter targetApoapsis is 200000.
 
   CLEARSCREEN.
 
+  local dT is TIME:SECONDS - dTcurrentTime.
+  set dTcurrentTime to TIME:SECONDS.
+  print "dT: " + dt at (0, 20).
+  print "1/dT: " + (1/dt) at (0, 21).
   local targetHorizontalSpeed is SQRT(BODY:MU/(BODY:RADIUS + targetApoapsis)).
   print "targetHorizontalSpeed: " + targetHorizontalSpeed at (0,0).
   local avgG is getG((ALTITUDE + targetApoapsis) / 2).
@@ -44,61 +50,79 @@ local circularize is {
   print "acceleration: " + acceleration at (0,5).
 
   local horizontalDifference is targetHorizontalSpeed - currentHorizontalSpeed.
-  if horizontalDifference < 0 lock throttle to 0.
+  if horizontalDifference - (acceleration*dT) < 0 lock throttle to 0.
   print "horizontalDifference: " + horizontalDifference at (0,7).
   local timeToOrbit is util["burnDuration"](horizontalDifference).
   print "timeToOrbit: " + timeToOrbit at (0,8).
 
-  local targetVerticalSpeed is verticalDistance / (timeToOrbit / 2).
-  print "targetVerticalSpeed: " + targetVerticalSpeed at (0,10).
-  print "VERTICALSPEED: " + VERTICALSPEED at (0,11).
-  // // (VERTICALSPEED + x * timeToOrbit / 2 - avgA * timeToOrbit / 2) * timeToOrbit = verticalDistance
-  // //  verticalDistance = VERTICALSPEED * timeToOrbit + 1/2 * (x - avgA) * timeToOrbit^2
+  print "vertialspeed: " + VERTICALSPEED at (0,10).
+
+  // Guidance v2
   //
-  // // x * timeToOrbit / 2 = verticalDistance / timeToOrbit + avgA * timeToOrbit / 2 - VERTICALSPEED
-  // //local targetVerticalAccel is
-  // //  (verticalDistance / timeToOrbit + avgA * timeToOrbit / 2 - VERTICALSPEED)
-  // //  / (timeToOrbit / 2).
-  // //timeToOrbit * VERTICALSPEED = verticalDistance
-  // d = verticalDistance
+  // f  (x) =   a*x^4 +   b*x^3 +   c*x^2 +   d*x + e
+  // f' (x) =  4*a*x^3 + 3*b*x^2 + 2*c*x   +   d
+  // f''(x) = 12*a*x^2 + 6*b*x   + 2*c
+
+
+  // D = verticalDistance
   // v = VERTICALSPEED
   // t = timeToOrbit
-  // // f(t) = 0
-  // // f(0) = d
-  // // f'(t) = 0
-  // // f'(0) = v
-  //
-  // f  (x) =   a*x^3 +   b*x^2 +   c*x +   d
-  // f' (x) = 3*a*x^2 + 2*b*x   +   c
-  // f''(x) = 6*a*x   + 2*b
-  //
+  // f(t)   = 0
+  // f(0)   = D
+  // f'(t)  = 0
+  // f'(0)  = v
+  // f''(t) = 0
 
-  //   a*t^3 +   b*t^2 +   v*t +   d = 0
-  //   a*t^3 +   ((-v - 2*a*t^2) / t / 2)*t^2 +   v*t +   d = 0
-  //   a*t^3 +   ((-v - 2*a*t^2) / t / 2)*t^2  = -d - v*t
-  //   a = (2 d + t v)/t^3
+  // 0 =   a*t^4 +   b*t^3 +   c*t^2 +   d*t + e
+  // D =   a*0^4 +   b*0^3 +   c*0^2 +   d*0 + e
+  // 0 =  4*a*t^3 + 3*b*t^2 + 2*c*t   +   d
+  // v =  4*a*0^3 + 3*b*0^2 + 2*c*0   +   d
+  // 0 = 12*a*t^2 + 6*b*t   + 2*c
   //
+  // 0 =    a*t^4 +   b*t^3 +   c*t^2 +   d*t + e
+  // D =                                        e
+  // 0 =  4*a*t^3 + 3*b*t^2 + 2*c*t   +   d
+  // v =                                  d
+  // 0 = 12*a*t^2 + 6*b*t   + 2*c
   //
-  // 3*a*t^2 + 2*b*t   +   v         = 0
-  //             b = -(3 a t^2 + v)/(2 t)
+  // 0 =    a*t^4 +   b*t^3 +   c*t^2 +   v*t + D
+  // 0 =  4*a*t^3 + 3*b*t^2 + 2*c*t   +   v
+  // 0 = 12*a*t^2 + 6*b*t   + 2*c
   //
-  //   b = -(3 ((2 d + t v)/t^3) t^2 + v)/(2 t)
-  //   b = (-3 d - 2 t v)/t^2
+  // c = -3*t*(2*a*t + b)
+  // 0 =    a*t^4 +   b*t^3 +   (-3*t*(2*a*t + b))*t^2 +   v*t + D
+  // 0 =  4*a*t^3 + 3*b*t^2 + 2*(-3*t*(2*a*t + b))*t   +   v
+  //
+  // b = ((v - 8*a*t^3)/(3*t^2))
+  // 0 =    a*t^4 +   ((v - 8*a*t^3)/(3*t^2))*t^3 +   -3*t*(2*a*t + ((v - 8*a*t^3)/(3*t^2)))*t^2 +   v*t + D
+  //
+  // a = (-(3*D + t*v)/t^4)
+  //
+  // f''(x) = 12*a*x^2 + 6*b*x   + 2*c
+  // f''(0) = 12*a*0^2 + 6*b*0   + 2*c
+  //        = 2*c
+  // a = (-(3*D + t*v)/t^4)
+  // b = ((v - 8*a*t^3)/(3*t^2))
+  //   = ((v - 8*(-(3*D + t*v)/t^4)*t^3)/(3*t^2))
+  //   = ((8*D + 3*t*v)/t^3)
+  // c = -3*t*(2*a*t + b)
+  //   = -3*t*(2*(-(3*D + t*v)/t^4)*t + ((8*D + 3*t*v)/t^3))
+  //   = -(3*(2*D + t*v))/t^2
+  // f''(0) = 2*c = 2 * (-(3*(2*D + t*v))/t^2) = (-12*D - 6*t*v)/t^2
 
-  //
 
   local acc is {
     parameter d is -verticalDistance.
     parameter v is VERTICALSPEED.
     parameter t is timeToOrbit.
 
-    return 2 * (-3 * d - 2 * t * v) / t^2.
-    //return 2 * (v - 3*v*t - 3*d) / (5 * t^2).
+    return (-12*D - 6*t*v)/t^2. // v2
+    //return 2 * (-3 * d - 2 * t * v) / t^2. // v1
   }.
 
   local targetVerticalAccel is acc() - avgA.
   //local targetVerticalAccel is 2 * (verticalDistance - timeToOrbit * VERTICALSPEED) / timeToOrbit ^ 2 + avgA.
-  print "targetVerticalAccel: " + targetVerticalAccel at (0,12).
+  print "targetVerticalAccel: " + targetVerticalAccel at (0,11).
 
   if acceleration = 0 {
     print "WARN" at (0, 16).
@@ -106,11 +130,11 @@ local circularize is {
   }
   if targetVerticalAccel > acceleration {
     print "WARN2" at (0, 17).
-    return heading(headingCompass, 0).
+    return heading(headingCompass, 90).
   }
   if targetVerticalAccel < -acceleration {
     print "WARN3" at (0, 18).
-    return heading(headingCompass, 0).
+    return heading(headingCompass, -90).
   }
   local pitch is ARCSIN(targetVerticalAccel / acceleration).
   print "targetPitch: " + pitch at (0,13).
@@ -157,6 +181,7 @@ export(LIST({
   print "Second stage ignition!".
   util["stage"]().
 },{
+  set dTcurrentTime to TIME:SECONDS.
   lock STEERING to circularize(250000).
   lock THROTTLE to 1.
   wait until SHIP:AVAILABLETHRUST = 0.
