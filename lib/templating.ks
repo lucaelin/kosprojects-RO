@@ -17,8 +17,8 @@
       local template is OPEN(templatename):READALL:STRING.
 
       if not EXISTS(infilename) {
-        print "ERROR: Unable to prepare template.".
-        SHUTDOWN.
+        print "ERROR: Unable to prepare template [input "+infilename+" does not exist].".
+        wait until false.
       }
 
       local input is OPEN(infilename).
@@ -26,15 +26,18 @@
       CREATE(outfilename).
       local output is OPEN(outfilename).
 
-      output:WRITE(template
+      if not output:WRITE(template
         :REPLACE("@filename", fileName)
         :REPLACE("@outfilename", outfilename)
         :REPLACE("@infilename", infilename)
         :REPLACE("@content", input:READALL:STRING)
-      ).
+      ) {
+        print "ERROR: Unable to write bundle [Insufficient space in space]".
+        SHUTDOWN.
+      }
     } else {
       if not EXISTS(outfilename) {
-        print "ERROR: Unable to prepare template.".
+        print "ERROR: Unable to prepare template [output "+outfilename+" does not exist].".
         SHUTDOWN.
       }
     }
@@ -51,12 +54,13 @@
     if registries:HASKEY(importType)
       set registry to registries[importType].
 
-    if not registry:HASKEY(fullName)
+    if not registry:HASKEY(fullName) {
       RUNPATH(prepareTemplate(fullName), {
-          parameter export.
+        parameter export.
 
-          registry:ADD(fullName, export).
+        registry:ADD(fullName, export).
       }).
+    }
 
     return registry[fullName].
   }
