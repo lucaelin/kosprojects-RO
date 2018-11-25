@@ -24,8 +24,8 @@ PART
 	sqor = 0
 	sepI = 0
 	attm = 0
-	modCost = 0
-	modMass = 0
+	modCost = 366
+	modMass = 7.32435001E-05
 	modSize = 0,0,0
 	link = launchClamp1_4293383172
 	EVENTS
@@ -666,6 +666,9 @@ PART
 			MechJebModuleCustomInfoWindow
 			{
 			}
+			MechJebModuleCustomInfoWindow
+			{
+			}
 			MechJebModuleWarpController
 			{
 				unlockParts = 
@@ -791,10 +794,10 @@ PART
 		name = kOSProcessor
 		isEnabled = True
 		bootFile = /boot/mission.ks
-		diskSpace = 5000
+		diskSpace = 20000
 		baseDiskSpace = 5000
 		baseModuleMass = 0
-		additionalCost = 0
+		additionalCost = 366
 		MaxPartId = 100
 		RequiredPower = 0.200599998
 		stagingEnabled = True
@@ -1003,7 +1006,7 @@ PART
 	{
 		name = LaunchClamp
 		isEnabled = True
-		scaleFactor = 1.77481031
+		scaleFactor = 1.77481019
 		height = 4.47340012
 		stagingEnabled = True
 		towerRot = -0.365474999,4.01950295E-08,-1.61687765E-08,-0.93082118

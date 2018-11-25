@@ -20,8 +20,8 @@ local this is LEX(
     parameter currentPrograde is SHIP:ORBIT:VELOCITY:ORBIT.
     parameter mu is BODY:MU.
 
-    local normal is VCRS(bodyPosition, currentPrograde).
-    local dir is VCRS(normal, bodyPosition).
+    local nrml is VCRS(bodyPosition, currentPrograde).
+    local dir is VCRS(nrml, bodyPosition).
     set dir:MAG to this["circularVelocity"](bodyPosition:MAG, mu).
 
     return dir.
