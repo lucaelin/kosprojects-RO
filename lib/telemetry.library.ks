@@ -12,6 +12,11 @@ export({
 
   local loggers is LEX().
 
+  local lock UPFACING to -SHIP:UP * SHIP:FACING.
+  local lock UPSRFPROGRADE to -SHIP:UP * SRFPROGRADE.
+  local lock UPPROGRADE to -SHIP:UP * PROGRADE.
+  local lock UPNORMAL to -SHIP:UP * NORMAL.
+
   loggers:ADD("MET", { return ROUND((TIME:SECONDS - starttime) * timeprecision) / timeprecision. }).
   loggers:ADD("THRUST", { return SHIP:AVAILABLETHRUST. }).
   loggers:ADD("MAXTHRUST", { return SHIP:MAXTHRUST. }).
@@ -19,13 +24,25 @@ export({
   loggers:ADD("SPEED", { return SHIP:VELOCITY:SURFACE:MAG. }).
   loggers:ADD("GROUNDSPEED", { return GROUNDSPEED. }).
   loggers:ADD("ACCELERATION", { return SHIP:AVAILABLETHRUST / SHIP:MASS. }).
-  loggers:ADD("PITCH", { return 90 - VANG(SHIP:UP:VECTOR, SHIP:FACING:FOREVECTOR). }).
   loggers:ADD("AoA", { return VANG(SHIP:FACING:FOREVECTOR, SHIP:VELOCITY:SURFACE). }).
   loggers:ADD("Q", { return SHIP:Q. }).
   loggers:ADD("MASS", { return SHIP:MASS. }).
   loggers:ADD("ETA:APOAPSIS", { return ETA:APOAPSIS. }).
   loggers:ADD("APOAPSIS", { return APOAPSIS. }).
   loggers:ADD("PERIAPSIS", { return PERIAPSIS. }).
+  loggers:ADD("__PITCH", { return UPFACING:PITCH. }).
+  loggers:ADD("__YAW", { return UPFACING:YAW. }).
+  loggers:ADD("__ROLL", { return UPFACING:ROLL. }).
+  loggers:ADD("__SRFPROGRADE_X", { return UPSRFPROGRADE:VECTOR:X. }).
+  loggers:ADD("__SRFPROGRADE_Y", { return UPSRFPROGRADE:VECTOR:Y. }).
+  loggers:ADD("__SRFPROGRADE_Z", { return UPSRFPROGRADE:VECTOR:Z. }).
+  loggers:ADD("__PROGRADE_X", { return UPPROGRADE:VECTOR:X. }).
+  loggers:ADD("__PROGRADE_Y", { return UPPROGRADE:VECTOR:Y. }).
+  loggers:ADD("__PROGRADE_Z", { return UPPROGRADE:VECTOR:Z. }).
+  loggers:ADD("__NORMAL_X", { return UPNORMAL:VECTOR:X. }).
+  loggers:ADD("__NORMAL_Y", { return UPNORMAL:VECTOR:Y. }).
+  loggers:ADD("__NORMAL_Z", { return UPNORMAL:VECTOR:Z. }).
+  loggers:ADD("THROTTLE", { return THROTTLE. }).
 
   log loggers:KEYS:JOIN(",") to logfile.
 
