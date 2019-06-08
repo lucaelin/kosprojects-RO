@@ -1,51 +1,9 @@
+local logging is import("lib/logging").
 local nav is import("lib/nav").
 local util is import("lib/util").
 
-local dTcurrentTime is TIME:SECONDS.
-local turnStart is APOAPSIS.
 local azimuth is 90.
-
-local azimuth is {
-  parameter targetPeriapsis is 200000.
-  parameter targetApoapsis is 250000.
-  parameter targetInclination is 0.
-  parameter south is true.
-
-  CLEARSCREEN.
-
-  local targetSMA is BODY:RADIUS + (targetApoapsis + targetPeriapsis) / 2.
-  print "targetSMA: " + targetSMA at (0,0).
-  local targetHorizontalSpeed is SQRT(BODY:MU * ((2 / (BODY:RADIUS + targetPeriapsis)) - (1 / targetSMA))).
-  print "targetHorizontalSpeed: " + targetHorizontalSpeed at (0,1).
-  local currentHorizontalSpeedVec is VXCL(UP:VECTOR, SHIP:ORBIT:VELOCITY:ORBIT).
-  local currentHorizontalSpeed is currentHorizontalSpeedVec:MAG.
-  print "currentHorizontalSpeed: " + currentHorizontalSpeed at (0,2).
-
-  local normal is VCRS(BODY:POSITION, SHIP:ORBIT:VELOCITY:ORBIT).
-  local ascendingVector is ANGLEAXIS(SHIP:ORBIT:LAN, BODY:ANGULARVEL) * SOLARPRIMEVECTOR.
-  local targetNormal is VCRS(ascendingVector, -BODY:ANGULARVEL).
-  if south set targetNormal to -targetNormal.
-  local currentInclination is SHIP:ORBIT:INCLINATION.
-  print "currentInclination: " + currentInclination at (0,4).
-  local deltaInclination is targetInclination - currentInclination.
-  print "deltaInclination: " + deltaInclination at (0,5).
-  local ralativeInclination is VANG(normal, targetNormal).
-
-  local remainingSpeed is SQRT(targetHorizontalSpeed^2 + currentHorizontalSpeed^2 - 2*targetHorizontalSpeed*currentHorizontalSpeed*COS(ralativeInclination)).
-  print "remainingSpeed: " + remainingSpeed at (0,7).
-  local deltaAzimuth is ARCCOS((currentHorizontalSpeed^2 + remainingSpeed^2 - targetHorizontalSpeed^2) / (2 * currentHorizontalSpeed * remainingSpeed)).
-  print "deltaAzimuth: " + deltaAzimuth at (0,8).
-  local deltaHDG is 180 - deltaAzimuth.
-  print "deltaHDG: " + deltaHDG at (0,9).
-
-  local hdgPrograde is VANG(SHIP:NORTH:VECTOR, currentHorizontalSpeedVec).
-  print "hdgPrograde: " + hdgPrograde at (0,11).
-  print "result : " + (hdgPrograde + deltaHDG) at (0,12).
-
-  if currentHorizontalSpeed >= targetHorizontalSpeed - 1 return hdgPrograde.
-  if south return hdgPrograde + deltaHDG.
-  return hdgPrograde - deltaHDG.
-}.
+local turnStart is APOAPSIS.
 
 local properAzimuth is {
   parameter targetPeriapsis is 200000.
@@ -85,44 +43,45 @@ local earlyPitch is {
 local pitch is {
   parameter targetPeriapsis is 200000.
   parameter targetApoapsis is 250000.
+  parameter dT is 1/50.
 
   local targetSMA is BODY:RADIUS + (targetApoapsis + targetPeriapsis) / 2.
 
-  CLEARSCREEN.
+  //CLEARSCREEN.
 
-  local dT is TIME:SECONDS - dTcurrentTime.
-  set dTcurrentTime to TIME:SECONDS.
-  print "dT: " + dt at (0, 20).
-  print "1/dT: " + (1/dt) at (0, 21).
+  //print "dT: " + dt at (0, 20).
+  //print "1/dT: " + (1/dt) at (0, 21).
 
   local currentG is BODY:MU / (BODY:RADIUS + ALTITUDE)^2.
   local targetHorizontalSpeed is SQRT(BODY:MU * ((2 / (BODY:RADIUS + targetPeriapsis)) - (1 / targetSMA))).
-  print "targetHorizontalSpeed: " + targetHorizontalSpeed at (0,0).
+  //print "targetHorizontalSpeed: " + targetHorizontalSpeed at (0,0).
   local avgG is BODY:MU / (BODY:RADIUS + (ALTITUDE + targetPeriapsis) / 2)^2.
-  print "avgG: " + avgG at (0,1).
+  //print "avgG: " + avgG at (0,1).
   local verticalDistance is targetPeriapsis - ALTITUDE.
-  print "verticalDistance: " + verticalDistance at (0,2).
+  //print "verticalDistance: " + verticalDistance at (0,2).
   local currentHorizontalSpeed is VXCL(UP:VECTOR, SHIP:ORBIT:VELOCITY:ORBIT):MAG.
-  print "currentHorizontalSpeed: " + currentHorizontalSpeed at (0,3).
+  //print "currentHorizontalSpeed: " + currentHorizontalSpeed at (0,3).
   local a is currentG - currentHorizontalSpeed ^ 2 / BODY:POSITION:MAG.
-  print "a: " + a at (0,4).
+  //print "a: " + a at (0,4).
   local acceleration is SHIP:AVAILABLETHRUST / SHIP:MASS.
-  print "acceleration: " + acceleration at (0,5).
+  //print "acceleration: " + acceleration at (0,5).
 
   local horizontalDifference is targetHorizontalSpeed - currentHorizontalSpeed.
   if horizontalDifference - (acceleration*dT) < 0 {
+    print "Guidance finished.".
     lock throttle to 0.
     return 0.
   }
-  print "horizontalDifference: " + horizontalDifference at (0,7).
+  //print "horizontalDifference: " + horizontalDifference at (0,7).
   local timeToOrbit is util["burnDuration"](horizontalDifference).
-  print "timeToOrbit: " + timeToOrbit at (0,8).
+  //print "timeToOrbit: " + timeToOrbit at (0,8).
   if timeToOrbit = 0 {
+    print "Guidance finished.".
     lock throttle to 0.
     return 0.
   }
 
-  print "vertialspeed: " + VERTICALSPEED at (0,10).
+  //print "vertialspeed: " + VERTICALSPEED at (0,10).
 
   // Guidance v2
   //
@@ -179,27 +138,27 @@ local pitch is {
 
 
   local targetVerticalAccel is (-12 * -verticalDistance - 6 * timeToOrbit * VERTICALSPEED) / timeToOrbit^2. // v2
-  print "targetVerticalAccel: " + targetVerticalAccel at (0,11).
+  //print "targetVerticalAccel: " + targetVerticalAccel at (0,11).
   //local acc is  2 * (-3 * -verticalDistance - 2 * timeToOrbit * VERTICALSPEED) / timeToOrbit^2. // v1
 
-  local deltaVerticalAccel is targetVerticalAccel - a.
-  print "deltaVerticalAccel: " + targetVerticalAccel at (0,12).
+  local deltaVerticalAccel is targetVerticalAccel - (-a).
+  //print "deltaVerticalAccel: " + targetVerticalAccel at (0,12).
 
   if acceleration = 0 {
-    print "WARN" at (0, 17).
+    //print "WARN" at (0, 17).
     return 0.
   }
   if deltaVerticalAccel > acceleration {
-    print "WARN2" at (0, 18).
-    return 90.
+    //print "WARN2" at (0, 18).
+    return 89.
   }
   if deltaVerticalAccel < -acceleration {
-    print "WARN3" at (0, 19).
-    return -90.
+    //print "WARN3" at (0, 19).
+    return -89.
   }
   local pitch is ARCSIN(deltaVerticalAccel / acceleration).
-  print "targetPitch: " + pitch at (0,14).
-  print "pitch: " + (90 - VANG(UP:VECTOR, SHIP:FACING:FOREVECTOR)) at (0,15).
+  //print "targetPitch: " + pitch at (0,14).
+  //print "pitch: " + (90 - VANG(UP:VECTOR, SHIP:FACING:FOREVECTOR)) at (0,15).
 
   return pitch.
 }.
@@ -211,13 +170,36 @@ export(LEX(
     parameter targetApoapsis is 250000.
     parameter targetInclination is 0.
 
-    set dTcurrentTime to TIME:SECONDS.
+    local dTcurrentTime to TIME:SECONDS.
+    local ctx is logging["createContext"]("Late Guidance").
 
-    lock STEERING to LOOKDIRUP(HEADING(
-      //azimuth(targetApoapsis, targetApoapsis, targetInclination),
-      azimuth,
-      pitch(targetPeriapsis, targetApoapsis)
-    ):VECTOR, SHIP:FACING:TOPVECTOR).
+    ctx["log"]("azimuth", { return azimuth. }).
+
+    local converged is false.
+    local p is earlyPitch(turnStart, targetPeriapsis).
+    local early is earlyPitch(turnStart, targetPeriapsis).
+    local late is 0.
+    local pitchdiff is 90.
+    ctx["log"]("converged", { return converged. }).
+    ctx["log"]("pitch", { return p. }).
+    ctx["log"]("pitchEarly", { return early. }).
+    ctx["log"]("pitchLate", { return late. }).
+    lock STEERING to HEADING(azimuth, p).
+    until THROTTLE = 0 {
+      local now is TIME:SECONDS.
+      set early to earlyPitch(turnStart, targetPeriapsis).
+      set late to pitch(targetPeriapsis, targetApoapsis, now-dTcurrentTime).
+      set dTcurrentTime to now.
+      if late < early + 1 and late > early - 1 set converged to true.
+      if ABS(late - early) > pitchdiff set converged to true.
+      set pitchdiff to ABS(late - early).
+      if converged {
+        set p to late.
+      } else {
+        set p to early.
+      }
+    }
+    ctx["remove"]().
   },
   "runEarly", {
     parameter targetPeriapsis is 200000.
@@ -225,22 +207,29 @@ export(LEX(
     parameter targetInclination is 0.
     parameter reset is true.
 
-    set dTcurrentTime to TIME:SECONDS.
+    local ctx is logging["createContext"]("Early Guidance").
+
     if reset {
       set turnStart to APOAPSIS.
       set azimuth to properAzimuth(targetPeriapsis, targetApoapsis, targetInclination).
     }
+    ctx["log"]("turnStart", { return turnStart. }).
+    ctx["log"]("azimuth", { return azimuth. }).
 
-    lock STEERING to LOOKDIRUP(HEADING(
-      //azimuth(targetApoapsis, targetApoapsis, targetInclination),
-      azimuth,
-      earlyPitch(turnStart, targetPeriapsis)
-    ):VECTOR, SHIP:FACING:TOPVECTOR).
+    local p is earlyPitch(turnStart, targetPeriapsis).
+    ctx["log"]("pitch", { return p. }).
+
+    lock STEERING to HEADING(azimuth, p).
+    until util["flamedOutEngines"]() > 0 {
+      set p to earlyPitch(turnStart, targetPeriapsis).
+    }
+    ctx["remove"]().
   },
   "launchWindow", {
     parameter LAN is SHIP:ORBIT:LAN.
     parameter INC is SHIP:ORBIT:INCLINATION.
 
+    local ctx is logging["createContext"]("Launchwindow").
     local ascendingVec is ANGLEAXIS(LAN, BODY:ANGULARVEL) * SOLARPRIMEVECTOR.
     local tgtnrml is ANGLEAXIS(-INC,ascendingVec) * -BODY:ANGULARVEL.
 
@@ -277,9 +266,14 @@ export(LEX(
 
     local offsetTime is -7 * 60.
     local launchtime is TIME:SECONDS + offsetTime + (meanAtLowestInc + launchAngle)/360 * BODY:ROTATIONPERIOD.
+    ctx["log"]("offsetTime", offsetTime).
+    ctx["log"]("launchTime", launchTime).
+    ctx["log"]("delta launchTime", { return launchTime - TIME:SECONDS. }).
+    wait until KUNIVERSE:TIMEWARP:MODE = "RAILS".
     KUNIVERSE:TIMEWARP:WARPTO(launchtime - 10).
     wait until TIME:SECONDS > launchtime.
     wait until KUNIVERSE:TIMEWARP:ISSETTLED.
     wait 1.
+    ctx["remove"]().
   }
 )).

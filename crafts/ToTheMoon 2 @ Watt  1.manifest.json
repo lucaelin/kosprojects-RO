@@ -1,0 +1,20 @@
+{
+    "entries": [
+        "moonscience",
+        {
+            "items": [
+                {
+                    "items": [
+                        "EVENT",
+                        "4292887128",
+                        "ModuleScienceExperiment",
+                        "analyze telemetry"
+                    ],
+                    "$type": "kOS.Safe.Encapsulation.ListValue"
+                }
+            ],
+            "$type": "kOS.Safe.Encapsulation.ListValue"
+        }
+    ],
+    "$type": "kOS.Safe.Encapsulation.Lexicon"
+}

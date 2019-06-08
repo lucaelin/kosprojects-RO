@@ -15,5 +15,5 @@ export({
       set this[membername] to member.
     }
   }
-  return this["constructor"]().
+  return this["constructor"].
 }).

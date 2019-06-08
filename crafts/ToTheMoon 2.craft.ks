@@ -1,4 +1,5 @@
 local util is import("lib/util").
+local Orbit is import("lib/orbit", "class").
 
 local tgt is BODY("Moon").
 local lock moonPosition to tgt:POSITION - BODY:POSITION.

@@ -53,6 +53,7 @@
     local registry is LEX().
     if registries:HASKEY(importType)
       set registry to registries[importType].
+    set registries[importType] to registry.
 
     if not registry:HASKEY(fullName) {
       RUNPATH(prepareTemplate(fullName), {

@@ -1,0 +1,147 @@
+{
+    "entries": [
+        "moonscience",
+        {
+            "items": [
+                {
+                    "items": [
+                        "ACTION",
+                        "4292369930",
+                        "ModuleRTAntenna",
+                        "activate",
+                        true
+                    ],
+                    "$type": "kOS.Safe.Encapsulation.ListValue"
+                },
+                {
+                    "items": [
+                        "ACTION",
+                        "4292760494",
+                        "ModuleScienceExperiment",
+                        "analyze telemetry",
+                        true
+                    ],
+                    "$type": "kOS.Safe.Encapsulation.ListValue"
+                },
+                {
+                    "items": [
+                        "ACTION",
+                        "4290944858",
+                        "ModuleScienceExperiment",
+                        "log pressure data",
+                        true
+                    ],
+                    "$type": "kOS.Safe.Encapsulation.ListValue"
+                },
+                {
+                    "items": [
+                        "ACTION",
+                        "4290942934",
+                        "ModuleScienceExperiment",
+                        "log temperature",
+                        true
+                    ],
+                    "$type": "kOS.Safe.Encapsulation.ListValue"
+                }
+            ],
+            "$type": "kOS.Safe.Encapsulation.ListValue"
+        },
+        "fairingdeploy",
+        {
+            "items": [
+                {
+                    "items": [
+                        "ACTIONGROUP",
+                        1,
+                        "ON"
+                    ],
+                    "$type": "kOS.Safe.Encapsulation.ListValue"
+                }
+            ],
+            "$type": "kOS.Safe.Encapsulation.ListValue"
+        },
+        "solar",
+        {
+            "items": [
+                {
+                    "items": [
+                        "ACTION",
+                        "4292369930",
+                        "ModuleRTAntenna",
+                        "activate",
+                        true
+                    ],
+                    "$type": "kOS.Safe.Encapsulation.ListValue"
+                },
+                {
+                    "items": [
+                        "ACTION",
+                        "4289579196",
+                        "KopernicusSolarPanel",
+                        "extend solar panel",
+                        true
+                    ],
+                    "$type": "kOS.Safe.Encapsulation.ListValue"
+                },
+                {
+                    "items": [
+                        "ACTION",
+                        "4289533446",
+                        "KopernicusSolarPanel",
+                        "extend solar panel",
+                        true
+                    ],
+                    "$type": "kOS.Safe.Encapsulation.ListValue"
+                }
+            ],
+            "$type": "kOS.Safe.Encapsulation.ListValue"
+        },
+        "landing",
+        {
+            "items": [
+                {
+                    "items": [
+                        "ACTION",
+                        "4290982340",
+                        "ModuleAnimateGeneric",
+                        "deploy",
+                        true
+                    ],
+                    "$type": "kOS.Safe.Encapsulation.ListValue"
+                },
+                {
+                    "items": [
+                        "ACTION",
+                        "4290981202",
+                        "ModuleAnimateGeneric",
+                        "deploy",
+                        true
+                    ],
+                    "$type": "kOS.Safe.Encapsulation.ListValue"
+                },
+                {
+                    "items": [
+                        "ACTION",
+                        "4290981136",
+                        "ModuleAnimateGeneric",
+                        "deploy",
+                        true
+                    ],
+                    "$type": "kOS.Safe.Encapsulation.ListValue"
+                },
+                {
+                    "items": [
+                        "ACTION",
+                        "4290981070",
+                        "ModuleAnimateGeneric",
+                        "deploy",
+                        true
+                    ],
+                    "$type": "kOS.Safe.Encapsulation.ListValue"
+                }
+            ],
+            "$type": "kOS.Safe.Encapsulation.ListValue"
+        }
+    ],
+    "$type": "kOS.Safe.Encapsulation.Lexicon"
+}

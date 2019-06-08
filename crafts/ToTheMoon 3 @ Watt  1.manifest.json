@@ -1,0 +1,148 @@
+{
+    "entries": [
+        "moonscience",
+        {
+            "items": [
+                {
+                    "items": [
+                        "EVENT",
+                        "4292887128",
+                        "ModuleScienceExperiment",
+                        "analyze telemetry"
+                    ],
+                    "$type": "kOS.Safe.Encapsulation.ListValue"
+                },
+                {
+                    "items": [
+                        "ACTION",
+                        "4276766768",
+                        "ModuleRTAntenna",
+                        "activate",
+                        true
+                    ],
+                    "$type": "kOS.Safe.Encapsulation.ListValue"
+                },
+                {
+                    "items": [
+                        "ACTION",
+                        "4276766674",
+                        "ModuleRTAntenna",
+                        "activate",
+                        true
+                    ],
+                    "$type": "kOS.Safe.Encapsulation.ListValue"
+                }
+            ],
+            "$type": "kOS.Safe.Encapsulation.ListValue"
+        },
+        "damprcs",
+        {
+            "items": [
+                {
+                    "items": [
+                        "FIELD",
+                        "4293328080",
+                        "ModuleRCSFX",
+                        "thrust limiter",
+                        10
+                    ],
+                    "$type": "kOS.Safe.Encapsulation.ListValue"
+                },
+                {
+                    "items": [
+                        "FIELD",
+                        "4293328024",
+                        "ModuleRCSFX",
+                        "thrust limiter",
+                        10
+                    ],
+                    "$type": "kOS.Safe.Encapsulation.ListValue"
+                },
+                {
+                    "items": [
+                        "FIELD",
+                        "4293327968",
+                        "ModuleRCSFX",
+                        "thrust limiter",
+                        10
+                    ],
+                    "$type": "kOS.Safe.Encapsulation.ListValue"
+                },
+                {
+                    "items": [
+                        "FIELD",
+                        "4293327912",
+                        "ModuleRCSFX",
+                        "thrust limiter",
+                        10
+                    ],
+                    "$type": "kOS.Safe.Encapsulation.ListValue"
+                }
+            ],
+            "$type": "kOS.Safe.Encapsulation.ListValue"
+        },
+        "fullrcs",
+        {
+            "items": [
+                {
+                    "items": [
+                        "FIELD",
+                        "4293327912",
+                        "ModuleRCSFX",
+                        "thrust limiter",
+                        100
+                    ],
+                    "$type": "kOS.Safe.Encapsulation.ListValue"
+                },
+                {
+                    "items": [
+                        "FIELD",
+                        "4293327968",
+                        "ModuleRCSFX",
+                        "thrust limiter",
+                        100
+                    ],
+                    "$type": "kOS.Safe.Encapsulation.ListValue"
+                },
+                {
+                    "items": [
+                        "FIELD",
+                        "4293328024",
+                        "ModuleRCSFX",
+                        "thrust limiter",
+                        100
+                    ],
+                    "$type": "kOS.Safe.Encapsulation.ListValue"
+                },
+                {
+                    "items": [
+                        "FIELD",
+                        "4293328080",
+                        "ModuleRCSFX",
+                        "thrust limiter",
+                        100
+                    ],
+                    "$type": "kOS.Safe.Encapsulation.ListValue"
+                }
+            ],
+            "$type": "kOS.Safe.Encapsulation.ListValue"
+        },
+        "limitthrust",
+        {
+            "items": [
+                {
+                    "items": [
+                        "FIELD",
+                        "4276766580",
+                        "ModuleEnginesRF",
+                        "thrust limiter",
+                        100
+                    ],
+                    "$type": "kOS.Safe.Encapsulation.ListValue"
+                }
+            ],
+            "$type": "kOS.Safe.Encapsulation.ListValue"
+        }
+    ],
+    "$type": "kOS.Safe.Encapsulation.Lexicon"
+}

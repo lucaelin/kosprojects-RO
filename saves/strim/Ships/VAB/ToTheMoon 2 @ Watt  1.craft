@@ -2,12 +2,12 @@ ship = ToTheMoon 2 @ Watt  1
 version = 1.3.1
 description = 
 type = VAB
-size = 2,23.483078,2
+size = 2,23.4830742,2
 PART
 {
 	part = proceduralAvionics_4292887128
 	partName = Part
-	pos = -0.702329874,30.9920845,0.324777454
+	pos = -0.702329874,32.4920845,0.324777454
 	attPos = 0,0,0
 	attPos0 = -0.702329874,27.9920845,0.324777454
 	rot = 0,0,0,1
@@ -43,7 +43,7 @@ PART
 		name = ProceduralPart
 		isEnabled = True
 		tempColliderCenter = (0, 0, 0)
-		tempColliderSize = (0.799999952, 0.647335052, 0.800000012)
+		tempColliderSize = (0.799999952, 0.647331238, 0.800000012)
 		textureSet = Black
 		shapeName = Smooth Cone
 		moduleCost = 45.9016533
@@ -1084,7 +1084,7 @@ PART
 {
 	part = RFTank-III_4287173030
 	partName = Part
-	pos = -0.702329874,29.8989067,0.324777454
+	pos = -0.702329874,31.3989067,0.324777454
 	attPos = 0,0,0
 	attPos0 = 0,-1.0931778,0
 	rot = 0,-0.707106888,0,-0.707106709
@@ -1118,6 +1118,8 @@ PART
 	link = solarPanels5_4293308016
 	link = longAntenna_4288174108
 	link = longAntenna_4288168724
+	link = hc.kazzelblad_4291942080
+	link = hc.kazzelblad_4291938878
 	attN = top,proceduralAvionics_4292887128
 	attN = bottom,KzInterstageAdapter2_4293327250
 	EVENTS
@@ -1134,7 +1136,7 @@ PART
 		name = ProceduralPart
 		isEnabled = True
 		tempColliderCenter = (0, 0, 0)
-		tempColliderSize = (0.00100000005, 1.53900146, 0.800000131)
+		tempColliderSize = (0.00100000005, 1.53900146, 0.80000037)
 		textureSet = scratch-red
 		shapeName = Cylinder
 		moduleCost = 0.00740321632
@@ -1915,6 +1917,20 @@ PART
 			amount = 0
 			maxAmount = 0
 		}
+		TANK
+		{
+			name = SoundingPayload
+			note = 
+			utilization = 1
+			mass = 0
+			cost = 0
+			loss_rate = 0
+			temperature = 300
+			fillable = True
+			techRequired = 
+			amount = 0
+			maxAmount = 0
+		}
 		UPGRADESAPPLIED
 		{
 		}
@@ -1984,7 +2000,7 @@ PART
 {
 	part = RO.linearRcs.tenth_4293328080
 	partName = Part
-	pos = -1.10074258,29.2251339,0.324777633
+	pos = -1.10074258,30.7251339,0.324777633
 	attPos = 0,0,0
 	attPos0 = -2.83021553E-08,-0.481579363,-0.398412406
 	rot = 0.50057143,-0.499428004,0.500571191,0.499428242
@@ -2181,7 +2197,7 @@ PART
 {
 	part = RO.linearRcs.tenth_4293328024
 	partName = Part
-	pos = -0.702329099,29.2251339,0.72319001
+	pos = -0.702329099,30.7251339,0.72319001
 	attPos = 0,0,0
 	attPos0 = -0.398412377,-0.481579363,0
 	rot = 0.707914829,1.78813934E-07,-1.78813934E-07,0.706297934
@@ -2378,7 +2394,7 @@ PART
 {
 	part = RO.linearRcs.tenth_4293327968
 	partName = Part
-	pos = -0.303917289,29.2251339,0.324777305
+	pos = -0.303917289,30.7251339,0.324777305
 	attPos = 0,0,0
 	attPos0 = 6.31324752E-08,-0.481579363,0.398412406
 	rot = 0.500571191,0.499428213,-0.50057143,0.499427915
@@ -2575,7 +2591,7 @@ PART
 {
 	part = RO.linearRcs.tenth_4293327912
 	partName = Part
-	pos = -0.702329993,29.2251339,-0.0736351013
+	pos = -0.702329993,30.7251339,-0.0736351013
 	attPos = 0,0,0
 	attPos0 = 0.398412377,-0.481579363,-5.96046199E-08
 	rot = -1.78813934E-07,0.706297934,-0.707914829,-1.78813934E-07
@@ -2772,7 +2788,7 @@ PART
 {
 	part = microEngine_4293327856
 	partName = Part
-	pos = -0.702329934,29.129406,0.101507381
+	pos = -0.702329934,30.629406,0.101507381
 	attPos = 0,0,0
 	attPos0 = 0.223269939,-0.549999714,1.4901155E-08
 	rot = 1.77635684E-15,8.94069672E-08,4.85797003E-08,1
@@ -3013,10 +3029,10 @@ PART
 {
 	part = microEngine_4293327762
 	partName = Part
-	pos = -0.895687401,29.129406,0.436412513
+	pos = -0.895687401,30.629406,0.436412513
 	attPos = 0,0,0
 	attPos0 = -0.11163497,-0.549999714,-0.193357453
-	rot = 4.20712745E-08,0.866025448,2.42898253E-08,0.50000006
+	rot = 4.20712745E-08,0.866025507,2.42898253E-08,0.50000006
 	attRot = 0,0,0,1
 	attRot0 = -1.2573345E-08,-0.258818984,-4.69243737E-08,-0.965925932
 	mir = 1,1,1
@@ -3254,10 +3270,10 @@ PART
 {
 	part = microEngine_4293327668
 	partName = Part
-	pos = -0.508972168,29.129406,0.436412454
+	pos = -0.508972168,30.629406,0.436412454
 	attPos = 0,0,0
 	attPos0 = -0.111635,-0.549999714,0.193357483
-	rot = 4.20712674E-08,0.866025448,-2.42898448E-08,-0.500000119
+	rot = 4.20712638E-08,0.866025329,-2.4289843E-08,-0.50000006
 	attRot = 0,0,0,1
 	attRot0 = -4.69243702E-08,-0.965925872,-1.25733504E-08,-0.258819073
 	mir = 1,1,1
@@ -3495,7 +3511,7 @@ PART
 {
 	part = KzInterstageAdapter2_4293327250
 	partName = Part
-	pos = -0.702329874,28.6294003,0.324777454
+	pos = -0.702329874,30.1294003,0.324777454
 	attPos = 0,0,0
 	attPos0 = 0,-1.29050636,0
 	rot = 0,0,0,1.00000012
@@ -3773,7 +3789,7 @@ PART
 {
 	part = RFTank-III_4293327174
 	partName = Part
-	pos = -0.702329874,27.1294003,0.324777454
+	pos = -0.702329874,28.6294003,0.324777454
 	attPos = 0,0,0
 	attPos0 = 0,-0.500004888,0
 	rot = 0,0,0,1.00000012
@@ -4620,7 +4636,7 @@ PART
 {
 	part = RO-RealEngines-RD0105_4293327102
 	partName = Part
-	pos = -0.702329874,25.3343945,0.324777454
+	pos = -0.702329874,26.8343945,0.324777454
 	attPos = 0,0,0
 	attPos0 = 0,-0.795004845,0
 	rot = 0,0,0,1.00000012
@@ -5314,7 +5330,7 @@ PART
 {
 	part = KzInterstageAdapter2_4293326722
 	partName = Part
-	pos = -0.702329874,23.314394,0.324777454
+	pos = -0.702329874,24.814394,0.324777454
 	attPos = 0,0,0
 	attPos0 = 0,-2.02000046,0
 	rot = 0,0,0,1.00000012
@@ -5594,7 +5610,7 @@ PART
 {
 	part = KzProcFairingFuselage2_4293326646
 	partName = Part
-	pos = -1.70232987,22.998394,0.324777335
+	pos = -1.70232987,24.498394,0.324777335
 	attPos = 0,0,0
 	attPos0 = -1,-0.315999985,-5.96046732E-08
 	rot = 0,0,0,1.00000012
@@ -5833,7 +5849,7 @@ PART
 {
 	part = KzProcFairingFuselage2_4293326568
 	partName = Part
-	pos = -0.702329934,22.998394,1.32477748
+	pos = -0.702329934,24.498394,1.32477748
 	attPos = 0,0,0
 	attPos0 = -5.96045027E-08,-0.315999985,1
 	rot = 0,0.707106769,0,0.707106829
@@ -6072,7 +6088,7 @@ PART
 {
 	part = KzProcFairingFuselage2_4293326490
 	partName = Part
-	pos = 0.297670126,22.998394,0.324777454
+	pos = 0.297670126,24.498394,0.324777454
 	attPos = 0,0,0
 	attPos0 = 1,-0.315999985,0
 	rot = 0,1,0,-8.94069672E-08
@@ -6311,7 +6327,7 @@ PART
 {
 	part = KzProcFairingFuselage2_4293326412
 	partName = Part
-	pos = -0.702329874,22.998394,-0.675222516
+	pos = -0.702329874,24.498394,-0.675222516
 	attPos = 0,0,0
 	attPos0 = -1.42108615E-13,-0.315999985,-1
 	rot = 0,0.707106829,0,-0.707106769
@@ -6550,7 +6566,7 @@ PART
 {
 	part = RFTank-III_4293326334
 	partName = Part
-	pos = -0.702329874,16.4828949,0.324777454
+	pos = -0.702329874,17.9828949,0.324777454
 	attPos = 0,0,0
 	attPos0 = 0,-0.500004768,0
 	rot = 0,0,0,1.00000012
@@ -7403,7 +7419,7 @@ PART
 {
 	part = R7.Booster.Engine_4293326262
 	partName = Part
-	pos = -0.702329874,9.59294891,0.324777454
+	pos = -0.702329874,11.0929489,0.324777454
 	attPos = 0,0,0
 	attPos0 = 0,-0.558447838,0
 	rot = 0,0,0,1.00000012
@@ -9265,7 +9281,7 @@ PART
 {
 	part = FASAlaunchClamp25_4293325878
 	partName = Part
-	pos = -0.702329874,6.41294479,0.324777454
+	pos = -0.702329874,7.91294479,0.324777454
 	attPos = 0,0,0
 	attPos0 = 0,-3.18000412,0
 	rot = 0,0,0,1.00000012
@@ -9299,8 +9315,8 @@ PART
 	{
 		name = LaunchClamp
 		isEnabled = True
-		scaleFactor = 7.83598232
-		height = 7.35106087
+		scaleFactor = 9.43493176
+		height = 8.85106087
 		stagingEnabled = True
 		towerRot = 0,0,0,1
 		EVENTS
@@ -9454,7 +9470,7 @@ PART
 {
 	part = GuidanceEarly1m_4293325754
 	partName = Part
-	pos = -0.702329874,23.7583942,0.324777454
+	pos = -0.702329874,25.2583942,0.324777454
 	attPos = 0,0,0
 	attPos0 = 0,0.444000244,0
 	rot = 0,0,0,1.00000012
@@ -9962,7 +9978,7 @@ PART
 {
 	part = SnubOtron_4293325652
 	partName = Part
-	pos = -0.702329874,25.6293983,-0.17230615
+	pos = -0.702329874,27.1293983,-0.17230615
 	attPos = 0,0,0
 	attPos0 = -5.96047229E-08,-1.5,-0.497083575
 	rot = 0.707106829,-2.98023224E-08,2.98023224E-08,0.707106829
@@ -9979,7 +9995,7 @@ PART
 	sqor = 2
 	sepI = 0
 	attm = 1
-	modCost = 0.0925000012
+	modCost = 0.0525000021
 	modMass = 0
 	modSize = 0,0,0
 	sym = SnubOtron_4293325412
@@ -10350,7 +10366,7 @@ PART
 {
 	part = SnubOtron_4293325572
 	partName = Part
-	pos = -1.19941354,25.6293983,0.324778199
+	pos = -1.19941354,27.1293983,0.324778199
 	attPos = 0,0,0
 	attPos0 = -0.497083545,-1.5,2.98023366E-08
 	rot = 0.50000006,0.50000006,-0.50000006,0.50000006
@@ -10367,7 +10383,7 @@ PART
 	sqor = 2
 	sepI = 0
 	attm = 1
-	modCost = 0.0925000012
+	modCost = 0.0525000021
 	modMass = 0
 	modSize = 0,0,0
 	sym = SnubOtron_4293325412
@@ -10738,7 +10754,7 @@ PART
 {
 	part = SnubOtron_4293325492
 	partName = Part
-	pos = -0.702329874,25.6293983,0.821860909
+	pos = -0.702329874,27.1293983,0.821860909
 	attPos = 0,0,0
 	attPos0 = 8.94070453E-08,-1.5,0.497083575
 	rot = 2.98023224E-08,0.707106829,-0.707106829,2.98023224E-08
@@ -10755,7 +10771,7 @@ PART
 	sqor = 2
 	sepI = 0
 	attm = 1
-	modCost = 0.0925000012
+	modCost = 0.0525000021
 	modMass = 0
 	modSize = 0,0,0
 	sym = SnubOtron_4293325412
@@ -11126,7 +11142,7 @@ PART
 {
 	part = SnubOtron_4293325412
 	partName = Part
-	pos = -0.20524627,25.6293983,0.324777454
+	pos = -0.20524627,27.1293983,0.324777454
 	attPos = 0,0,0
 	attPos0 = 0.497083575,-1.5,-5.96046732E-08
 	rot = -0.50000006,0.50000006,-0.50000006,-0.50000006
@@ -11143,7 +11159,7 @@ PART
 	sqor = 2
 	sepI = 0
 	attm = 1
-	modCost = 0.0925000012
+	modCost = 0.0525000021
 	modMass = 0
 	modSize = 0,0,0
 	sym = SnubOtron_4293325492
@@ -11514,7 +11530,7 @@ PART
 {
 	part = launchClamp1_4293325332
 	partName = Part
-	pos = -2.32209754,25.4117146,0.324777573
+	pos = -2.32209754,26.9117146,0.324777573
 	attPos = 0,0,0
 	attPos0 = -1.6197679,-1.7176857,1.1920929E-07
 	rot = 0.030308608,0.706457019,-0.0303086136,0.706456959
@@ -11548,8 +11564,8 @@ PART
 	{
 		name = LaunchClamp
 		isEnabled = True
-		scaleFactor = 10.3110065
-		height = 25.9888401
+		scaleFactor = 10.9061279
+		height = 27.4888401
 		stagingEnabled = True
 		towerRot = -0.030308608,-0.70645684,-0.0303086061,-0.706457019
 		EVENTS
@@ -11733,7 +11749,7 @@ PART
 {
 	part = solarPanels5_4293308884
 	partName = Part
-	pos = -0.702330112,30.3119144,-0.0262508392
+	pos = -0.702330112,31.8119144,-0.0262508392
 	attPos = -0.0484248698,0,-1.49011612E-07
 	attPos0 = 0.399453163,0.413007736,2.98023224E-08
 	rot = 0,-1,0,2.68220901E-07
@@ -11922,7 +11938,7 @@ PART
 {
 	part = solarPanels5_4293308238
 	partName = Part
-	pos = -0.702329457,30.3119144,0.675805748
+	pos = -0.702329218,31.8119144,0.675805748
 	attPos = 0.0484248996,0,2.98023224E-08
 	attPos0 = -0.399453193,0.413007736,2.98023224E-08
 	rot = 0,-1.78813934E-07,0,-1
@@ -12111,7 +12127,7 @@ PART
 {
 	part = solarPanels5_4293308086
 	partName = Part
-	pos = -0.702330112,29.6944027,-0.0297062397
+	pos = -0.702330112,31.1944027,-0.0297062397
 	attPos = -0.0449859798,0,-1.49011612E-07
 	attPos0 = 0.399469674,-0.204504013,2.98023224E-08
 	rot = 0,-1,0,2.68220901E-07
@@ -12300,7 +12316,7 @@ PART
 {
 	part = solarPanels5_4293308016
 	partName = Part
-	pos = -0.702329576,29.6944027,0.679261148
+	pos = -0.702329576,31.1944027,0.679261148
 	attPos = 0.04498595,0,2.98023224E-08
 	attPos0 = -0.399469644,-0.204504013,2.98023224E-08
 	rot = 0,-1.78813934E-07,0,-1
@@ -12489,7 +12505,7 @@ PART
 {
 	part = longAntenna_4288174108
 	partName = Part
-	pos = -0.768000245,29.1294117,0.324777484
+	pos = -0.768000245,30.6294117,0.324777484
 	attPos = 0,0,0
 	attPos0 = -7.4505806E-09,-0.76949501,-0.0656703711
 	rot = 1.00000012,3.73689986E-08,0,0
@@ -12637,6 +12653,8 @@ PART
 		RTDishCosAngle = 1
 		RTOmniRange = 0
 		RTDishRange = -1
+		RTDeactivatePowerThreshold = 20
+		RTActivatePowerThreshold = 80
 		stagingEnabled = True
 		RTAntennaTarget = 00000000-0000-0000-0000-000000000000
 		EVENTS
@@ -12748,7 +12766,7 @@ PART
 {
 	part = longAntenna_4288168724
 	partName = Part
-	pos = -0.636659503,29.1294117,0.324777424
+	pos = -0.636659503,30.6294117,0.324777424
 	attPos = 0,0,0
 	attPos0 = 7.4505806E-09,-0.76949501,0.0656703711
 	rot = -8.94069672E-08,-1.77635684E-15,-1,-3.73689986E-08
@@ -12896,6 +12914,8 @@ PART
 		RTDishCosAngle = 1
 		RTOmniRange = 0
 		RTDishRange = -1
+		RTDeactivatePowerThreshold = 20
+		RTActivatePowerThreshold = 80
 		stagingEnabled = True
 		RTAntennaTarget = 00000000-0000-0000-0000-000000000000
 		EVENTS
@@ -13007,7 +13027,7 @@ PART
 {
 	part = KzProcFairingFuselage2_4293325176
 	partName = Part
-	pos = -0.302329868,28.203001,0.324777454
+	pos = -0.302329868,29.703001,0.324777454
 	attPos = 0,0,0
 	attPos0 = 0.400000006,-0.426399231,0
 	rot = 0,0,0,1.00000012
@@ -13246,7 +13266,7 @@ PART
 {
 	part = KzProcFairingFuselage2_4288167460
 	partName = Part
-	pos = -0.702329874,28.203001,-0.0752225518
+	pos = -0.702329874,29.703001,-0.0752225518
 	attPos = 0,0,0
 	attPos0 = 0,-0.426399231,-0.400000006
 	rot = 0,0.707106769,0,0.707106829
@@ -13485,7 +13505,7 @@ PART
 {
 	part = KzProcFairingFuselage2_4288167380
 	partName = Part
-	pos = -1.10232985,28.203001,0.324777424
+	pos = -1.10232985,29.703001,0.324777424
 	attPos = 0,0,0
 	attPos0 = -0.399999976,-0.426399231,-2.98023224E-08
 	rot = 0,1,0,-8.94069672E-08
@@ -13724,7 +13744,7 @@ PART
 {
 	part = KzProcFairingFuselage2_4288167300
 	partName = Part
-	pos = -0.702329874,28.203001,0.72477746
+	pos = -0.702329874,29.703001,0.72477746
 	attPos = 0,0,0
 	attPos0 = 0,-0.426399231,0.400000006
 	rot = 0,0.707106829,0,-0.707106769
@@ -13948,6 +13968,380 @@ PART
 		name = ModuleShowInfo
 		isEnabled = True
 		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+}
+PART
+{
+	part = hc.kazzelblad_4291942080
+	partName = Part
+	pos = -1.10171497,31.5098934,0.324777573
+	attPos = 0,0,0
+	attPos0 = 2.98023224E-08,0.11098671,-0.399385095
+	rot = 0.701057494,-0.0922958925,0.701057315,0.0922959745
+	attRot = 0.608761549,4.4834028E-08,-1.08807034E-08,0.793353438
+	attRot0 = -2.98023224E-08,0.130526155,-0.991444886,-4.47034836E-08
+	mir = 1,1,1
+	symMethod = Radial
+	autostrutMode = Off
+	rigidAttachment = False
+	istg = -1
+	resPri = 0
+	dstg = 0
+	sidx = -1
+	sqor = -1
+	sepI = -1
+	attm = 1
+	modCost = 0
+	modMass = 0
+	modSize = 0,0,0
+	sym = hc.kazzelblad_4291938878
+	srfN = srfAttach,RFTank-III_4287173030
+	EVENTS
+	{
+	}
+	ACTIONS
+	{
+	}
+	PARTDATA
+	{
+	}
+	MODULE
+	{
+		name = MuMechModuleHullCameraZoom
+		isEnabled = True
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+			ZoomInAction
+			{
+				actionGroup = None
+			}
+			ZoomOutAction
+			{
+				actionGroup = None
+			}
+			ActivateCameraAction
+			{
+				actionGroup = None
+			}
+			DeactivateCameraAction
+			{
+				actionGroup = None
+			}
+			NextCameraAction
+			{
+				actionGroup = None
+			}
+			PreviousCameraAction
+			{
+				actionGroup = None
+			}
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = GeometryPartModule
+		isEnabled = True
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = FARAeroPartModule
+		isEnabled = True
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = FARPartModule
+		isEnabled = True
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = KOSNameTag
+		isEnabled = True
+		nameTag = 
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = JSIExternalCameraSelector
+		isEnabled = True
+		current = 1
+		showCones = False
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = ModuleShowInfo
+		isEnabled = True
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = ModuleAeroReentry
+		isEnabled = True
+		dead = False
+		crashTolerance = 8
+		internalDamage = 0
+		stagingEnabled = True
+		damageCube = 0, 0, 0, 0, 0, 0
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+}
+PART
+{
+	part = hc.kazzelblad_4291938878
+	partName = Part
+	pos = -0.302944779,31.5098934,0.324777305
+	attPos = 0,0,0
+	attPos0 = 0,0.11098671,0.399385095
+	rot = 0.701057255,0.0922960117,-0.701057553,0.0922959
+	attRot = 0.608761549,4.4834028E-08,-1.08807034E-08,0.793353438
+	attRot0 = -0.991444886,-5.96046519E-08,1.19209304E-07,-0.130526185
+	mir = 1,1,1
+	symMethod = Radial
+	autostrutMode = Off
+	rigidAttachment = False
+	istg = -1
+	resPri = 0
+	dstg = 0
+	sidx = -1
+	sqor = -1
+	sepI = -1
+	attm = 1
+	modCost = 0
+	modMass = 0
+	modSize = 0,0,0
+	sym = hc.kazzelblad_4291942080
+	srfN = srfAttach,RFTank-III_4287173030
+	EVENTS
+	{
+	}
+	ACTIONS
+	{
+	}
+	PARTDATA
+	{
+	}
+	MODULE
+	{
+		name = MuMechModuleHullCameraZoom
+		isEnabled = True
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+			ZoomInAction
+			{
+				actionGroup = None
+			}
+			ZoomOutAction
+			{
+				actionGroup = None
+			}
+			ActivateCameraAction
+			{
+				actionGroup = None
+			}
+			DeactivateCameraAction
+			{
+				actionGroup = None
+			}
+			NextCameraAction
+			{
+				actionGroup = None
+			}
+			PreviousCameraAction
+			{
+				actionGroup = None
+			}
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = GeometryPartModule
+		isEnabled = True
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = FARAeroPartModule
+		isEnabled = True
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = FARPartModule
+		isEnabled = True
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = KOSNameTag
+		isEnabled = True
+		nameTag = 
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = JSIExternalCameraSelector
+		isEnabled = True
+		current = 1
+		showCones = False
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = ModuleShowInfo
+		isEnabled = True
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = ModuleAeroReentry
+		isEnabled = True
+		dead = False
+		crashTolerance = 8
+		internalDamage = 0
+		stagingEnabled = True
+		damageCube = 0, 0, 0, 0, 0, 0
 		EVENTS
 		{
 		}

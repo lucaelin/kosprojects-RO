@@ -1,0 +1,105 @@
+{
+    "entries": [
+        "moonscience",
+        {
+            "items": [
+                {
+                    "items": [
+                        "ACTION",
+                        "4292369930",
+                        "ModuleRTAntenna",
+                        "activate",
+                        true
+                    ],
+                    "$type": "kOS.Safe.Encapsulation.ListValue"
+                },
+                {
+                    "items": [
+                        "ACTION",
+                        "4286505660",
+                        "ModuleScienceExperiment",
+                        "log temperature",
+                        true
+                    ],
+                    "$type": "kOS.Safe.Encapsulation.ListValue"
+                },
+                {
+                    "items": [
+                        "ACTION",
+                        "4286501930",
+                        "ModuleScienceExperiment",
+                        "record perturbation data",
+                        true
+                    ],
+                    "$type": "kOS.Safe.Encapsulation.ListValue"
+                },
+                {
+                    "items": [
+                        "ACTION",
+                        "4284088948",
+                        "ModuleScienceExperiment",
+                        "log pressure data",
+                        true
+                    ],
+                    "$type": "kOS.Safe.Encapsulation.ListValue"
+                },
+                {
+                    "items": [
+                        "ACTION",
+                        "4286473774",
+                        "ModuleScienceExperiment",
+                        "log impacts",
+                        true
+                    ],
+                    "$type": "kOS.Safe.Encapsulation.ListValue"
+                },
+                {
+                    "items": [
+                        "ACTION",
+                        "4286493166",
+                        "ModuleScienceExperiment",
+                        "log radiation",
+                        true
+                    ],
+                    "$type": "kOS.Safe.Encapsulation.ListValue"
+                },
+                {
+                    "items": [
+                        "ACTION",
+                        "4292760494",
+                        "ModuleScienceExperiment",
+                        "analyze telemetry",
+                        true
+                    ],
+                    "$type": "kOS.Safe.Encapsulation.ListValue"
+                },
+                {
+                    "items": [
+                        "ACTION",
+                        "4286472630",
+                        "ModuleScienceExperiment",
+                        "mass spectrometry level 1",
+                        true
+                    ],
+                    "$type": "kOS.Safe.Encapsulation.ListValue"
+                }
+            ],
+            "$type": "kOS.Safe.Encapsulation.ListValue"
+        },
+        "fairingdeploy",
+        {
+            "items": [
+                {
+                    "items": [
+                        "ACTIONGROUP",
+                        1,
+                        "ON"
+                    ],
+                    "$type": "kOS.Safe.Encapsulation.ListValue"
+                }
+            ],
+            "$type": "kOS.Safe.Encapsulation.ListValue"
+        }
+    ],
+    "$type": "kOS.Safe.Encapsulation.Lexicon"
+}

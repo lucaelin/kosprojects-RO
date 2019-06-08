@@ -1,0 +1,103 @@
+{
+    "entries": [
+        "fairingdeploy",
+        {
+            "items": [
+                {
+                    "items": [
+                        "ACTION",
+                        "4286962730",
+                        "ModuleEnginesRF",
+                        "toggle engine",
+                        true
+                    ],
+                    "$type": "kOS.Safe.Encapsulation.ListValue"
+                },
+                {
+                    "items": [
+                        "ACTION",
+                        "4286962730",
+                        "ModuleDecouple",
+                        "decouple",
+                        true
+                    ],
+                    "$type": "kOS.Safe.Encapsulation.ListValue"
+                }
+            ],
+            "$type": "kOS.Safe.Encapsulation.ListValue"
+        },
+        "orbit",
+        {
+            "items": [
+                {
+                    "items": [
+                        "ACTION",
+                        "4287068614",
+                        "ModuleScienceExperiment",
+                        "analyze telemetry",
+                        true
+                    ],
+                    "$type": "kOS.Safe.Encapsulation.ListValue"
+                },
+                {
+                    "items": [
+                        "ACTION",
+                        "4287068614",
+                        "TacGenericConverter",
+                        "start airfilter",
+                        true
+                    ],
+                    "$type": "kOS.Safe.Encapsulation.ListValue"
+                },
+                {
+                    "items": [
+                        "ACTION",
+                        "4286869386",
+                        "ModuleRTAntenna",
+                        "activate",
+                        true
+                    ],
+                    "$type": "kOS.Safe.Encapsulation.ListValue"
+                }
+            ],
+            "$type": "kOS.Safe.Encapsulation.ListValue"
+        },
+        "reentry",
+        {
+            "items": [
+                {
+                    "items": [
+                        "ACTION",
+                        "4286869386",
+                        "ModuleDecouple",
+                        "decouple",
+                        true
+                    ],
+                    "$type": "kOS.Safe.Encapsulation.ListValue"
+                },
+                {
+                    "items": [
+                        "ACTION",
+                        "4286920252",
+                        "RealChuteModule",
+                        "arm parachute",
+                        true
+                    ],
+                    "$type": "kOS.Safe.Encapsulation.ListValue"
+                },
+                {
+                    "items": [
+                        "ACTION",
+                        "4286754510",
+                        "RealChuteModule",
+                        "arm parachute",
+                        true
+                    ],
+                    "$type": "kOS.Safe.Encapsulation.ListValue"
+                }
+            ],
+            "$type": "kOS.Safe.Encapsulation.ListValue"
+        }
+    ],
+    "$type": "kOS.Safe.Encapsulation.Lexicon"
+}
